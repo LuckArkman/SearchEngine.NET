@@ -1,0 +1,84 @@
+﻿version: '3.8'
+
+services:
+  # --- Bancos de Dados ---
+  postgresdb:
+    image: postgres:15
+    container_name: search-postgres
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=secret
+      - POSTGRES_DB=searchengine_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  mongodb:
+    image: mongo:7.0
+    container_name: search-mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  # --- Back-end Microserviços ---
+  userauthservice:
+    build:
+      context: .
+      dockerfile: src/Services/SearchEngine.UserAuthService/Dockerfile
+    container_name: userauthservice
+    ports:
+      - "8081:8080"
+    depends_on:
+      - postgresdb
+
+  urlsubmissionservice:
+    build:
+      context: .
+      dockerfile: src/Services/SearchEngine.UrlSubmissionService/Dockerfile
+    container_name: urlsubmissionservice
+    ports:
+      - "8082:8080"
+    depends_on:
+      - postgresdb
+
+  searchrankingservice:
+    build:
+      context: .
+      dockerfile: src/Services/SearchEngine.SearchRankingService/Dockerfile
+    container_name: searchrankingservice
+    ports:
+      - "8083:8080"
+    depends_on:
+      - mongodb
+  
+  # Adicione o CrawlerService e outros aqui...
+
+  # --- API Gateway ---
+  apigateway:
+    build:
+      context: .
+      dockerfile: src/ApiGateways/SearchEngine.ApiGateway/Dockerfile
+    container_name: apigateway
+    ports:
+      - "5000:8080"
+    depends_on:
+      - userauthservice
+      - urlsubmissionservice
+      - searchrankingservice
+
+  # --- Front-end ---
+  web:
+    build:
+      context: .
+      dockerfile: src/Web/SearchEngine.Web/Dockerfile
+    container_name: web
+    ports:
+      - "5001:8080"
+    depends_on:
+      - apigateway
+
+volumes:
+  postgres_data:
+  mongo_data:

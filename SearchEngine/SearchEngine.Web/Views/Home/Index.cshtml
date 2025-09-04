@@ -1,8 +1,96 @@
 ﻿@{
-    ViewData["Title"] = "Home Page";
+ViewData["Title"] = "SearchEngine";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>@ViewData["Title"]</title>
+    <style>
+        body {
+            background-color: #222427;
+            color: #e8eaed;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .center-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        .logo {
+            font-size: 60px;
+            font-weight: bold;
+            color: white;
+            margin-bottom: 30px;
+            font-family: 'Product Sans', Arial, sans-serif;
+        }
+        .search-box {
+            display: flex;
+            align-items: center;
+            background: #303134;
+            border-radius: 10px;
+            padding: 10px 15px;
+            width: 550px;
+            max-width: 90%;
+        }
+        .search-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            outline: none;
+            font-size: 18px;
+            color: white;
+        }
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #9aa0a6;
+            font-size: 18px;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .buttons input {
+            background: #303134;
+            border: 1px solid #5f6368;
+            color: #e8eaed;
+            font-size: 14px;
+            padding: 10px 20px;
+            border-radius: 4px;
+            margin: 5px;
+            cursor: pointer;
+        }
+        .buttons input:hover {
+            border: 1px solid #e8eaed;
+        }
+        footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #171717;
+            color: #9aa0a6;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+<div class="center-container">
+    <div class="logo">SearchEngine</div>
+    <form asp-controller="Search" asp-action="Results" method="get">
+        <div class="input-group input-group-lg">
+            <input type="search" name="search-box" class="form-control" placeholder="Digite o que você procura..." required />
+            <button class="btn btn-primary" type="submit">Buscar</button>
+        </div>
+    </form>
 </div>
+</body>
+</html>

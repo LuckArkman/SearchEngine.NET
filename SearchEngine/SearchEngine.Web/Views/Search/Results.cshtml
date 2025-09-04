@@ -1,0 +1,92 @@
+@model SearchEngine.Shared.Contracts.PagedResult<SearchEngine.Shared.Contracts.SearchResultModel>
+
+@{
+    ViewData["Title"] = $"Resultados para \"{ViewData["Query"]}\"";
+    var query = ViewData["Query"] as string;
+}
+
+<div class="row">
+    <div class="col-md-8">
+        <h2 class="mb-4">Resultados da Busca</h2>
+
+        <form asp-controller="Search" asp-action="Results" method="get" class="mb-4">
+            <div class="input-group">
+                <input type="search" name="query" class="form-control" value="@query" />
+                <button class="btn btn-primary" type="submit">Buscar</button>
+            </div>
+        </form>
+
+        @if (!string.IsNullOrEmpty(ViewData["Error"] as string))
+        {
+            <div class="alert alert-danger">@ViewData["Error"]</div>
+        }
+        else if (Model != null && Model.Items.Any())
+        {
+            <p class="text-muted">Aproximadamente @Model.TotalCount resultados encontrados.</p>
+
+            @foreach (var item in Model.Items)
+            {
+                <div class="result-item mb-4">
+                    <a href="@item.Url" class="text-decoration-none">
+                        <h5 class="text-primary">@item.Title</h5>
+                    </a>
+                    <a href="@item.Url" class="text-success text-decoration-none d-block">@item.Url</a>
+                    <p class="mt-1">@item.Snippet</p>
+                </div>
+            }
+
+            <!-- Paginação -->
+            <nav>
+                <ul class="pagination">
+                    <li class="page-item @(Model.HasPreviousPage ? "" : "disabled")">
+                        <a class="page-link" asp-action="Results" asp-route-query="@query" asp-route-page="@(Model.PageNumber - 1)">Anterior</a>
+                    </li>
+                    @for (var i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(i == Model.PageNumber ? "active" : "")">
+                            <a class="page-link" asp-action="Results" asp-route-query="@query" asp-route-page="@i">@i</a>
+                        </li>
+                    }
+                    <li class="page-item @(Model.HasNextPage ? "" : "disabled")">
+                        <a class="page-link" asp-action="Results" asp-route-query="@query" asp-route-page="@(Model.PageNumber + 1)">Próximo</a>
+                    </li>
+                </ul>
+            </nav>
+        }
+        else
+        {
+            <p>Nenhum resultado encontrado para "<strong>@query</strong>".</p>
+        }
+    </div>
+</div>```
+
+### Passo 6: Executar o Projeto
+
+1.  **Abra 3 terminais separados.**
+2.  No **Terminal 1**, navegue e execute o `SearchRankingService`:
+    ```bash
+    cd src/Services/SearchEngine.SearchRankingService
+    dotnet run
+    ```
+3.  No **Terminal 2**, navegue e execute o `ApiGateway`:
+    ```bash
+    cd src/ApiGateways/SearchEngine.ApiGateway
+    dotnet run
+    ```
+4.  No **Terminal 3**, navegue e execute o `SearchEngine.Web`:
+    ```bash
+    cd src/Web/SearchEngine.Web
+    dotnet run
+    ```
+5.  Abra seu navegador e acesse a URL da aplicação `SearchEngine.Web` (ex: `https://localhost:7003`).
+6.  Faça uma busca por termos como ".NET", "microserviços" ou "banco de dados" para ver os resultados mockados aparecerem com paginação.
+
+### Próximos Passos
+
+Com esta base funcional, o fluxo principal está implementado. Agora você pode evoluir o projeto:
+
+1.  **Conectar ao MongoDB**: Substitua os dados mockados no `SearchRankingService` por uma conexão real com o MongoDB para ler o índice invertido.
+2.  **Implementar o Pipeline de Indexação**: Crie os *Worker Services* (`Crawler`, `Parser`, `Indexer`) para popular o MongoDB.
+3.  **Implementar Autenticação**: Crie o `UserAuthService` com ASP.NET Core Identity e JWT.
+4.  **Proteger Endpoints**: Adicione o atributo `[Authorize]` nos serviços que precisam de autenticação, como o `UrlSubmissionService`.
+5.  **Criar Painéis de Controle**: Desenvolva as áreas de usuário e administrador no `SearchEngine.Web`.
