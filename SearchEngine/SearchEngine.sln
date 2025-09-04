@@ -9,7 +9,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		compose.yaml = compose.yaml
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchEngine.Identity", "SearchEngine.Identity\SearchEngine.Identity.csproj", "{27235B9D-2B5A-4CA6-A2C5-76FB511B031C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SearchEngine.Identity", "SearchEngine.Identity\SearchEngine.Identity.csproj", "{5C36D878-7449-4768-8FED-A0930753DCA4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.Ingestion", "Synapse.Ingestion\Synapse.Ingestion.csproj", "{9F0C20BB-018E-4E23-8C2C-844FE519DB40}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.Crawler", "Synapse.Crawler\Synapse.Crawler.csproj", "{5C36F1CB-575B-4870-9497-6206A7AC131E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Synapse.Indexing", "Synapse.Indexing\Synapse.Indexing.csproj", "{C59FCA17-47F4-49A5-BFD3-5DB77DFB8A9F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,9 +31,21 @@ Global
 		{29066549-CA3B-4D5A-8BC5-E64E086A38AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29066549-CA3B-4D5A-8BC5-E64E086A38AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29066549-CA3B-4D5A-8BC5-E64E086A38AE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{27235B9D-2B5A-4CA6-A2C5-76FB511B031C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{27235B9D-2B5A-4CA6-A2C5-76FB511B031C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{27235B9D-2B5A-4CA6-A2C5-76FB511B031C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{27235B9D-2B5A-4CA6-A2C5-76FB511B031C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C36D878-7449-4768-8FED-A0930753DCA4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C36D878-7449-4768-8FED-A0930753DCA4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C36D878-7449-4768-8FED-A0930753DCA4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C36D878-7449-4768-8FED-A0930753DCA4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9F0C20BB-018E-4E23-8C2C-844FE519DB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9F0C20BB-018E-4E23-8C2C-844FE519DB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9F0C20BB-018E-4E23-8C2C-844FE519DB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9F0C20BB-018E-4E23-8C2C-844FE519DB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C36F1CB-575B-4870-9497-6206A7AC131E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C36F1CB-575B-4870-9497-6206A7AC131E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C36F1CB-575B-4870-9497-6206A7AC131E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C36F1CB-575B-4870-9497-6206A7AC131E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C59FCA17-47F4-49A5-BFD3-5DB77DFB8A9F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C59FCA17-47F4-49A5-BFD3-5DB77DFB8A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C59FCA17-47F4-49A5-BFD3-5DB77DFB8A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C59FCA17-47F4-49A5-BFD3-5DB77DFB8A9F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

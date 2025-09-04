@@ -1,6 +1,4 @@
 using Microsoft.AspNetCore.Mvc;
-using SearchEngine.Shared.Contracts;
-using System.Text.Json;
 
 namespace SearchEngine.Web.Controllers;
 
@@ -18,8 +16,8 @@ public class SearchController : Controller
         var response = await _httpClient.GetAsync($"/api/search?query={query}&page={page}");
         if (response.IsSuccessStatusCode)
         {
-            var results = await response.Content.ReadFromJsonAsync<PagedResult<SearchResultModel>>();
-            return View(results);
+            //var results = await response.Content.ReadFromJsonAsync<PagedResult<SearchResultModel>>();
+            //return View(results);
         }
         return View("Error");
     }

@@ -15,7 +15,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("SearchEngine.Web")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d9f26221ba90eae0af6b36bff36e62209c2723b6")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+682693181d7d2b6af172be5c0b5ae6bb524a8550")]
 [assembly: System.Reflection.AssemblyProductAttribute("SearchEngine.Web")]
 [assembly: System.Reflection.AssemblyTitleAttribute("SearchEngine.Web")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

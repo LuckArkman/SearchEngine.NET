@@ -20,9 +20,8 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Views\Account\" />
       <Folder Include="Views\Admin\" />
-      <Folder Include="Views\Dashboard\" />
+      <Folder Include="Views\Search\" />
     </ItemGroup>
 
 </Project>

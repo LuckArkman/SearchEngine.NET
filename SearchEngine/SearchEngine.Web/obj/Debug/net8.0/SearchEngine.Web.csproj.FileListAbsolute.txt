@@ -140,5 +140,3 @@
 /home/mplopes/Documentos/GitHub/SearchEngine.NET/SearchEngine/SearchEngine.Web/obj/Debug/net8.0/SearchEngine.Web.pdb
 /home/mplopes/Documentos/GitHub/SearchEngine.NET/SearchEngine/SearchEngine.Web/obj/Debug/net8.0/SearchEngine.Web.genruntimeconfig.cache
 /home/mplopes/Documentos/GitHub/SearchEngine.NET/SearchEngine/SearchEngine.Web/obj/Debug/net8.0/ref/SearchEngine.Web.dll
-/home/mplopes/Documentos/GitHub/SearchEngine.NET/SearchEngine/SearchEngine.Web/bin/Debug/net8.0/SearchEngine.Shared.Contracts.dll
-/home/mplopes/Documentos/GitHub/SearchEngine.NET/SearchEngine/SearchEngine.Web/bin/Debug/net8.0/SearchEngine.Shared.Contracts.pdb

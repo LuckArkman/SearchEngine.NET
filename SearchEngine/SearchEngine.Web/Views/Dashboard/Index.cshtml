@@ -1,0 +1,36 @@
+@model SearchEngine.Web.ViewModels.SubmitSiteViewModel
+@{
+    ViewData["Title"] = "Meu Dashboard";
+}
+
+<h2>@ViewData["Title"]</h2>
+<h4>Olá, @User.Identity.Name!</h4>
+
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Indexar Novo Site</h3>
+
+        @if (TempData["SuccessMessage"] != null)
+        {
+            <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+        }
+        @if (TempData["ErrorMessage"] != null)
+        {
+            <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+        }
+
+        <form asp-action="SubmitSite" method="post">
+            <div class="form-group">
+                <label asp-for="Url" class="control-label">URL do seu site</label>
+                <input asp-for="Url" class="form-control" placeholder="https://meusite.com" />
+                <span asp-validation-for="Url" class="text-danger"></span>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Indexar</button>
+            </div>
+        </form>
+    </div>
+</div>

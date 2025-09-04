@@ -1,0 +1,33 @@
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/api/{everything}",
+      "DownstreamScheme": "https", 
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 7280
+        }
+      ],
+      "UpstreamPathTemplate": "/identity/{everything}",
+      "UpstreamHttpMethod": [ "GET", "POST", "PUT", "DELETE" ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "https://localhost:7036"
+  },
+  "DownstreamPathTemplate": "/api/{everything}",
+  "DownstreamScheme": "https", 
+  "DownstreamHostAndPorts": [
+    {
+      "Host": "localhost",
+      "Port": 7158 // A porta do serviço Ingestion
+    }
+  ],
+  "UpstreamPathTemplate": "/ingestion/{everything}",
+  "UpstreamHttpMethod": [ "POST" ],
+  "AuthenticationOptions": { 
+    "AuthenticationProviderKey": "Bearer",
+    "AllowedScopes": []
+  }
+}

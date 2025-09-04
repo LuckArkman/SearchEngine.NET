@@ -49,6 +49,10 @@
               "target": "Package",
               "version": "[3.4.3, )"
             },
+            "Ocelot": {
+              "target": "Package",
+              "version": "[24.0.1, )"
+            },
             "Yarp.ReverseProxy": {
               "target": "Package",
               "version": "[2.3.0, )"

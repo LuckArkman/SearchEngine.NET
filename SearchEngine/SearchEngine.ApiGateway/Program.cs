@@ -1,12 +1,14 @@
+using Ocelot.DependencyInjection;
+using Ocelot.Middleware;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Adicionar e configurar o YARP a partir do appsettings.json
-builder.Services.AddReverseProxy()
-    .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
+// Adicionar o arquivo de configuração do ocelot
+builder.Configuration.AddJsonFile("ocelot.json", optional: false, reloadOnChange: true);
+builder.Services.AddOcelot(builder.Configuration);
 
 var app = builder.Build();
 
-// Mapear as rotas do proxy
-app.MapReverseProxy();
-
+app.UseHttpsRedirection();
+await app.UseOcelot();
 app.Run();

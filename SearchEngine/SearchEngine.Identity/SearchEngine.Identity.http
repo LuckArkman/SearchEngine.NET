@@ -1,0 +1,6 @@
+@SearchEngine.Identity_HostAddress = http://localhost:5289
+
+GET {{SearchEngine.Identity_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
